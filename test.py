@@ -2,12 +2,11 @@ import sys, pygame
 
 pygame.init()
 
-width= 320
-height=240
+size = width,height=320,240
 speed = [2, 2]
 black = 0, 0, 0
 
-screen = pygame.display.set_mode(width, height)
+screen = pygame.display.set_mode(size)
 
 ball = pygame.image.load("ball.bmp")
 ballrect = ball.get_rect()
