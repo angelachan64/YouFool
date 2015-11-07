@@ -5,9 +5,9 @@ pygame.init()
 size= width, height = 800, 600
 black = 0,0,0
 screen = pygame.display.set_mode(size)
-title =pygame.image.load("title.png").convert()
-new =pygame.image.load("newbutton.png").convert()
-resume =pygame.image.load("resumebutton.png").convert()
+title =pygame.image.load("title.bmp").convert()
+new =pygame.image.load("newbutton.bmp").convert()
+resume =pygame.image.load("resumebutton.bmp").convert()
 titlerect = title.get_rect()
 newrect = new.get_rect()
 resumerect = resume.get_rect()
