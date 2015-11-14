@@ -10,12 +10,12 @@ titlescreen = True
 titlescreenloaded = True
 
 def introscreen():
-    loaded.append(pygame.image.load("static/youfool.png").convert())
+    loaded.append(pygame.image.load("static/titletrans.bmp").convert())
     loaded.append(pygame.image.load("static/menu_button.bmp").convert())
     loaded.append(pygame.image.load("static/resume_button.bmp").convert())
     for i in range(0,3):
         rects.append(loaded[i].get_rect())
-    rects[0]=rects[0].move(width/2 - 207.5,120)
+    rects[0]=rects[0].move(width/2 - 207.5,80)
     rects[1]=rects[1].move(width/2 - 196.5, 300)
     rects[2]=rects[2].move(width/2 - 196.5,400)
     screen.fill(black)
