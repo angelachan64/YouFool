@@ -6,11 +6,7 @@ size= width, height = 800, 600
 black = 0,0,0
 screen = pygame.display.set_mode(size)
 title =pygame.image.load("titletrans.bmp").convert()
-<<<<<<< HEAD
 new =pygame.image.load("menu_button.bmp").convert()
-=======
-new =pygame.image.load("newbutton.bmp").convert()
->>>>>>> 7e984ea948ed2985bf67d23b4ebe550fd6023aa7
 resume =pygame.image.load("resumebutton.bmp").convert()
 titlerect = title.get_rect()
 newrect = new.get_rect()
