@@ -10,9 +10,9 @@ titlescreen = True
 titlescreenloaded = True
 
 def introscreen():
-    loaded.append(pygame.image.load("static/titletrans.bmp").convert())
-    loaded.append(pygame.image.load("static/menu_button.bmp").convert())
-    loaded.append(pygame.image.load("static/resume_button.bmp").convert())
+    loaded.append(pygame.image.load("static/titletrans2.bmp").convert_alpha())
+    loaded.append(pygame.image.load("static/menu_button2.bmp").convert_alpha())
+    loaded.append(pygame.image.load("static/resume_button2.bmp").convert_alpha())
     for i in range(0,3):
         rects.append(loaded[i].get_rect())
     rects[0]=rects[0].move(width/2 - 207.5,80)
