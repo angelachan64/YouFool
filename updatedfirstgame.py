@@ -11,9 +11,15 @@ titlescreenloaded = True
 
 def introscreen():
     loaded.append(pygame.image.load("static/map.bmp").convert_alpha())
-    loaded.append(pygame.image.load("static/titletrans2.bmp").convert_alpha())
-    loaded.append(pygame.image.load("static/menu_button2.bmp").convert_alpha())
-    loaded.append(pygame.image.load("static/resume_button2.bmp").convert_alpha())
+    titlelogo = pygame.image.load("static/titletrans2.bmp").convert_alpha()
+    titlelogo.set_colorkey((0,0,0))
+    loaded.append(titlelogo)
+    startnew = pygame.image.load("static/menu_button2.bmp").convert_alpha()
+    startnew.set_colorkey((0,0,0))
+    loaded.append(startnew)
+    resume = pygame.image.load("static/resume_button2.bmp").convert_alpha()
+    resume.set_colorkey((0,0,0))
+    loaded.append(resume)
     for i in range(0,4):
         rects.append(loaded[i].get_rect())
     rects[0]=rects[0].move(0,0)
@@ -32,7 +38,7 @@ while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
     if titlescreen:
-        if (rects[1].collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]):
+        if (rects[2].collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]):
             screen.fill(black)
             pygame.display.flip()
             titlescreen = False
