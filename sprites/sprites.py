@@ -3,10 +3,10 @@ pygame.init()
 
 class Block(pygame.sprite.Sprite):
     def __init__(self, image):
-       pygame.sprite.Sprite.__init__(self)
-       self.image = pygame.image.load(image).convert_alpha()
-       #self.size = size
-       self.rect = self.image.get_rect()
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(image).convert_alpha()
+        #self.size = size
+        self.rect = self.image.get_rect()
        
     #def update(self, ):
         
@@ -18,8 +18,8 @@ basicsprite = Block("titletrans2.bmp")
 #basicsprite.__init__(self, "../static/titletrans2.bmp")
 basicgroup = pygame.sprite.Group()
 basicgroup.add(basicsprite)
-print basicgroup.sprites()
 basicgroup.draw(screen)
+pygame.display.flip()
 
 while 1:
     for event in pygame.event.get():
