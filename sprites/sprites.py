@@ -9,10 +9,6 @@ class basicsprite(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect = self.rect.move(coords)
 
-       
-    #def update(self, ):
-        
-
 size = width, height = 800, 600
 black = 0,0,0
 screen = pygame.display.set_mode(size)
@@ -21,7 +17,7 @@ maps = basicsprite("../static/map.bmp", (0,0))
 resume = basicsprite("../static/resume_button2.bmp", (width/2 - 196.5,400))
 start = basicsprite("../static/menu_button2.bmp", (width/2 - 196.5,300))
 #basicsprite.__init__(self, "../static/titletrans.bmp")
-basicgroup = pygame.sprite.Group()
+basicgroup = pygame.sprite.OrderedUpdates()
 basicgroup.add(maps)
 basicgroup.add(title)
 basicgroup.add(resume)
