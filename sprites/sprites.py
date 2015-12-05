@@ -7,6 +7,8 @@ class Block(pygame.sprite.Sprite):
         self.image = pygame.image.load(image).convert_alpha()
         #self.size = size
         self.rect = self.image.get_rect()
+        self.rect = self.rect.move(width/2 - 207.5,80)
+
        
     #def update(self, ):
         
