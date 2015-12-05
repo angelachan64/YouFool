@@ -8,10 +8,9 @@ loaded = []
 rects = []
 titlescreen = True
 titlescreenloaded = True
-
 def introscreen():
     loaded.append(pygame.image.load("static/map.bmp").convert_alpha())
-    titlelogo = pygame.image.load("static/titletrans2.bmp").convert_alpha()
+    titlelogo = pygame.image.load("static/titletrans.bmp").convert_alpha()
     titlelogo.set_colorkey((0,0,0))
     loaded.append(titlelogo)
     startnew = pygame.image.load("static/menu_button2.bmp").convert_alpha()

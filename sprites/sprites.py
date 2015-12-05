@@ -16,10 +16,14 @@ class basicsprite(pygame.sprite.Sprite):
 size = width, height = 800, 600
 black = 0,0,0
 screen = pygame.display.set_mode(size)
-title = basicsprite("../static/titletrans2.bmp", (width/2 - 207.5,80))
-#basicsprite.__init__(self, "../static/titletrans2.bmp")
+title = basicsprite("../static/titletrans.bmp", (width/2 - 207.5,80))
+maps = basicsprite("../static/map.bmp", (0,0))
+resume = basicsprite("../static/menu_button2.bmp", (width/2 - 196.5,400))
+#basicsprite.__init__(self, "../static/titletrans.bmp")
 basicgroup = pygame.sprite.Group()
+basicgroup.add(maps)
 basicgroup.add(title)
+basicgroup.add(resume)
 basicgroup.draw(screen)
 pygame.display.flip()
 
