@@ -14,7 +14,7 @@ black = 0,0,0
 screen = pygame.display.set_mode(size)
 background = pygame.Surface(screen.get_size()).convert()
 background.fill(black)
-title = basicsprite("../static/titletrans.bmp", (width/2 - 207.5,80))
+title = basicsprite("../static/titletrans2.bmp", (width/2 - 207.5,80))
 maps = basicsprite("../static/map.bmp", (0,0))
 resume = basicsprite("../static/resume_button2.bmp", (width/2 - 196.5,400))
 start = basicsprite("../static/menu_button2.bmp", (width/2 - 196.5,300))
@@ -27,9 +27,14 @@ basicgroup.add(start)
 basicgroup.draw(screen)
 pygame.display.flip()
 
+introscreen = True
+
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
-    
-    if pygame.mouse.get_pressed()[0] and basicgroup.sprites()[3].collide_point(pygame.mouse.get_pos()):
-        bascigroup.clear(screen, background)
+    if introscreen == True:
+        if pygame.mouse.get_pressed()[0] and basicgroup.sprites()[3].rect.collidepoint(pygame.mouse.get_pos()):
+            basicgroup.empty()
+            basicgroup.clear(screen, background)
+            pygame.display.flip()
+            introscreen = False
