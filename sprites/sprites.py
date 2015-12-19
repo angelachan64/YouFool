@@ -19,12 +19,12 @@ maps = basicsprite("../static/map.bmp", (0,0))
 resume = basicsprite("../static/resume_button2.bmp", (width/2 - 196.5,400))
 start = basicsprite("../static/menu_button2.bmp", (width/2 - 196.5,300))
 #basicsprite.__init__(self, "../static/titletrans.bmp")
-basicgroup = pygame.sprite.OrderedUpdates()
-basicgroup.add(maps)
-basicgroup.add(title)
-basicgroup.add(resume)
-basicgroup.add(start)
-basicgroup.draw(screen)
+introgroup = pygame.sprite.OrderedUpdates()
+introgroup.add(maps)
+introgroup.add(title)
+introgroup.add(resume)
+introgroup.add(start)
+introgroup.draw(screen)
 pygame.display.flip()
 
 introscreen = True
@@ -33,15 +33,15 @@ while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
     if introscreen == True:
-        if pygame.mouse.get_pressed()[0] and basicgroup.sprites()[3].rect.collidepoint(pygame.mouse.get_pos()):
-            basicgroup.empty()
-            basicgroup.clear(screen, background)
+        if pygame.mouse.get_pressed()[0] and introgroup.sprites()[3].rect.collidepoint(pygame.mouse.get_pos()):
+            introgroup.empty()
+            introgroup.clear(screen, background)
             pygame.display.flip()
             introscreen = False
 
             
-        if pygame.mouse.get_pressed()[0] and basicgroup.sprites()[2].rect.collidepoint(pygame.mouse.get_pos()):
-            basicgroup.empty()
-            basicgroup.clear(screen, background)
+        elif pygame.mouse.get_pressed()[0] and introgroup.sprites()[2].rect.collidepoint(pygame.mouse.get_pos()):
+            introgroup.empty()
+            introgroup.clear(screen, background)
             pygame.display.flip()
             introscreen = False
