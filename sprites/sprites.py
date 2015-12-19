@@ -63,6 +63,7 @@ while 1:
             screen1group.draw(screen)
             pygame.display.flip()
 
-            
-           
+  #  if screen1== True:
+     #   if( pygame.key.get_pressed()[pygame.K_UP] != 0 ):
+    
     
