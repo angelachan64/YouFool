@@ -38,3 +38,10 @@ while 1:
             basicgroup.clear(screen, background)
             pygame.display.flip()
             introscreen = False
+
+            
+        if pygame.mouse.get_pressed()[0] and basicgroup.sprites()[2].rect.collidepoint(pygame.mouse.get_pos()):
+            basicgroup.empty()
+            basicgroup.clear(screen, background)
+            pygame.display.flip()
+            introscreen = False
