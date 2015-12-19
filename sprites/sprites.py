@@ -27,6 +27,9 @@ introgroup.add(start)
 introgroup.draw(screen)
 pygame.display.flip()
 
+character = basicsprite("charactersingle.png", (width/2-15,height/2-26))
+
+screen1=False
 introscreen = True
 
 while 1:
@@ -38,6 +41,14 @@ while 1:
             introgroup.clear(screen, background)
             pygame.display.flip()
             introscreen = False
+            screen1= True
+           
+
+            screen1group= pygame.sprite.OrderedUpdates()
+            screen1group.add(character)
+            screen1group.draw(screen)
+            pygame.display.flip()
+
 
             
         elif pygame.mouse.get_pressed()[0] and introgroup.sprites()[2].rect.collidepoint(pygame.mouse.get_pos()):
@@ -45,3 +56,13 @@ while 1:
             introgroup.clear(screen, background)
             pygame.display.flip()
             introscreen = False
+            screen1 = True
+
+            screen1group= pygame.sprite.OrderedUpdates()
+            screen1group.add(character)
+            screen1group.draw(screen)
+            pygame.display.flip()
+
+            
+           
+    
