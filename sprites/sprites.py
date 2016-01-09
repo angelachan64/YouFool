@@ -8,6 +8,8 @@ class basicsprite(pygame.sprite.Sprite):
         #self.size = size
         self.rect = self.image.get_rect()
         self.rect = self.rect.move(coords)
+    def get_Coords():
+        return coords
 
 size = width, height = 800, 600
 black = 0,0,0
@@ -31,6 +33,7 @@ character = basicsprite("charactersingle.bmp", (width/2-15,height/2-26))
 
 screen1=False
 introscreen = True
+screen1group= pygame.sprite.OrderedUpdates()
 
 while 1:
     for event in pygame.event.get():
@@ -43,8 +46,6 @@ while 1:
             introscreen = False
             screen1= True
            
-
-            screen1group= pygame.sprite.OrderedUpdates()
             screen1group.add(character)
             screen1group.draw(screen)
             pygame.display.flip()
@@ -58,12 +59,28 @@ while 1:
             introscreen = False
             screen1 = True
 
-            screen1group= pygame.sprite.OrderedUpdates()
             screen1group.add(character)
             screen1group.draw(screen)
             pygame.display.flip()
 
-  #  if screen1== True:
-     #   if( pygame.key.get_pressed()[pygame.K_UP] != 0 ):
-    
-    
+    if screen1== True:
+        if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
+            introgroup.clear(screen, background)
+            character.rect=character.rect.move(0,-1)
+            screen1group.draw(screen)
+            pygame.display.flip()
+        if( pygame.key.get_pressed()[pygame.K_a] != 0 ):
+            introgroup.clear(screen, background)
+            character.rect=character.rect.move(-1,0)
+            screen1group.draw(screen)
+            pygame.display.flip()
+        if( pygame.key.get_pressed()[pygame.K_s] != 0 ):
+            introgroup.clear(screen, background)
+            character.rect=character.rect.move(0,1)
+            screen1group.draw(screen)
+            pygame.display.flip()
+        if( pygame.key.get_pressed()[pygame.K_d] != 0 ):
+            introgroup.clear(screen, background)
+            character.rect=character.rect.move(1,0)
+            screen1group.draw(screen)
+            pygame.display.flip()
