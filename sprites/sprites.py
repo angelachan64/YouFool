@@ -27,7 +27,7 @@ introgroup.add(start)
 introgroup.draw(screen)
 pygame.display.flip()
 
-character = basicsprite("charactersingle.png", (width/2-15,height/2-26))
+character = basicsprite("charactersingle.bmp", (width/2-15,height/2-26))
 
 screen1=False
 introscreen = True
