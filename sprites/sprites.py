@@ -1,3 +1,4 @@
+from time import sleep
 import pygame,sys
 pygame.init()
 
@@ -66,21 +67,25 @@ while 1:
     if screen1== True:
         if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
             introgroup.clear(screen, background)
-            character.rect=character.rect.move(0,-1)
+            character.rect=character.rect.move(0,-5)
             screen1group.draw(screen)
             pygame.display.flip()
+            sleep(0.025)
         if( pygame.key.get_pressed()[pygame.K_a] != 0 ):
             introgroup.clear(screen, background)
-            character.rect=character.rect.move(-1,0)
+            character.rect=character.rect.move(-5,0)
             screen1group.draw(screen)
             pygame.display.flip()
+            sleep(0.025)
         if( pygame.key.get_pressed()[pygame.K_s] != 0 ):
             introgroup.clear(screen, background)
-            character.rect=character.rect.move(0,1)
+            character.rect=character.rect.move(0,5)
             screen1group.draw(screen)
             pygame.display.flip()
+            sleep (0.025)
         if( pygame.key.get_pressed()[pygame.K_d] != 0 ):
             introgroup.clear(screen, background)
-            character.rect=character.rect.move(1,0)
+            character.rect=character.rect.move(5,0)
             screen1group.draw(screen)
             pygame.display.flip()
+            sleep(0.025)
