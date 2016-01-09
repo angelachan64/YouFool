@@ -30,7 +30,7 @@ introgroup.add(start)
 introgroup.draw(screen)
 pygame.display.flip()
 
-character = basicsprite("charactersingle.bmp", (width/2-15,height/2-26))
+character = basicsprite("characterdown.bmp", (width/2-15,height/2-26))
 
 screen1=False
 introscreen = True
@@ -66,24 +66,28 @@ while 1:
 
     if screen1== True:
         if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
+            character.image= pygame.image.load("characterup.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(0,-5)
             screen1group.draw(screen)
             pygame.display.flip()
             sleep(0.025)
         if( pygame.key.get_pressed()[pygame.K_a] != 0 ):
+            character.image= pygame.image.load("characterleft.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(-5,0)
             screen1group.draw(screen)
             pygame.display.flip()
             sleep(0.025)
         if( pygame.key.get_pressed()[pygame.K_s] != 0 ):
+            character.image= pygame.image.load("characterdown.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(0,5)
             screen1group.draw(screen)
             pygame.display.flip()
             sleep (0.025)
         if( pygame.key.get_pressed()[pygame.K_d] != 0 ):
+            character.image= pygame.image.load("characterright.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(5,0)
             screen1group.draw(screen)
