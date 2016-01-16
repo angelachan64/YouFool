@@ -45,7 +45,7 @@ while 1:
     if introscreen == True:
         if count==60:
             movey*=-1
-        if count==160:
+        if count==150:
             movex*=-1
             count=0
         maps.rect=maps.rect.move(movex,movey)
