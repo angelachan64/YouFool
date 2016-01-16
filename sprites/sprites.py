@@ -78,6 +78,7 @@ while 1:
             pygame.display.flip()
 
     if screen1== True:
+        
         if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
             character.image= pygame.image.load("characterup.bmp").convert_alpha()
             introgroup.clear(screen, background)
@@ -85,21 +86,21 @@ while 1:
             screen1group.draw(screen)
             pygame.display.flip()
             sleep(0.025)
-        if( pygame.key.get_pressed()[pygame.K_a] != 0 ):
+        elif( pygame.key.get_pressed()[pygame.K_a] != 0 ):
             character.image= pygame.image.load("characterleft.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(-5,0)
             screen1group.draw(screen)
             pygame.display.flip()
             sleep(0.025)
-        if( pygame.key.get_pressed()[pygame.K_s] != 0 ):
+        elif( pygame.key.get_pressed()[pygame.K_s] != 0 ):
             character.image= pygame.image.load("characterdown.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(0,5)
             screen1group.draw(screen)
             pygame.display.flip()
             sleep (0.025)
-        if( pygame.key.get_pressed()[pygame.K_d] != 0 ):
+        elif( pygame.key.get_pressed()[pygame.K_d] != 0 ):
             character.image= pygame.image.load("characterright.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(5,0)
