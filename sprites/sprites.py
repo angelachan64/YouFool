@@ -51,6 +51,7 @@ while 1:
         maps.rect=maps.rect.move(movex,movey)
         introgroup.draw(screen)
         pygame.display.flip()
+        sleep(0.025)
         count+=1
         if pygame.mouse.get_pressed()[0] and introgroup.sprites()[3].rect.collidepoint(pygame.mouse.get_pos()):
             introgroup.empty()
