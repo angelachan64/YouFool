@@ -38,6 +38,8 @@ screen1group= pygame.sprite.OrderedUpdates()
 count=0
 movex=-2
 movey=2
+walkcount=0
+dirnum = 1
 
 while 1:
     for event in pygame.event.get():
@@ -45,6 +47,7 @@ while 1:
     if introscreen == True:
         if count==60:
             movey*=-1
+
         if count==150:
             movex*=-1
             count=0
@@ -80,13 +83,22 @@ while 1:
     if screen1== True:
         
         if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
-            character.image= pygame.image.load("characterup.bmp").convert_alpha()
+            walkcount=walkcount+1
+            if( walkcount % 10 == 0):
+                character.image = pygame.image.load("characteranimations/up" + str(dirnum) + ".bmp").convert_alpha()
+                introgroup.clear(screen, background)
+                screen1group.draw(screen)
+                pygame.display.flip()
+                dirnum += 1
+            #character.image= pygame.image.load("characterup.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(0,-5)
             screen1group.draw(screen)
             pygame.display.flip()
             sleep(0.025)
         elif( pygame.key.get_pressed()[pygame.K_a] != 0 ):
+            walkcount=walkcount+1
+            if( wal ):
             character.image= pygame.image.load("characterleft.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(-5,0)
@@ -94,6 +106,7 @@ while 1:
             pygame.display.flip()
             sleep(0.025)
         elif( pygame.key.get_pressed()[pygame.K_s] != 0 ):
+            walkcount=walkcount+1
             character.image= pygame.image.load("characterdown.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(0,5)
@@ -101,6 +114,7 @@ while 1:
             pygame.display.flip()
             sleep (0.025)
         elif( pygame.key.get_pressed()[pygame.K_d] != 0 ):
+            walkcount=walkcount+1
             character.image= pygame.image.load("characterright.bmp").convert_alpha()
             introgroup.clear(screen, background)
             character.rect=character.rect.move(5,0)
