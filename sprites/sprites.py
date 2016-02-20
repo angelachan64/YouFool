@@ -32,6 +32,7 @@ introgroup.draw(screen)
 pygame.display.flip()
 
 character = basicsprite("characterdown.bmp", (width/2-15,height/2-26))
+enemy = basicsprite("bobby.bmp", (width/2-15,height/2-26))
 
 screen1=False
 introscreen = True
@@ -66,6 +67,7 @@ while 1:
             screen1= True
 
             screen1group.add(character)
+            screen1group.add(enemy)
             screen1group.draw(screen)
             pygame.display.flip()
             background.fill(black)
