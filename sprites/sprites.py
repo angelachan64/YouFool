@@ -85,9 +85,8 @@ while 1:
 
         if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
             walkcount=walkcount+1
-            print "IM HERE"
-            if (walkcount % 3 != 0):
-                print "IM HERE TOO"
+            print "IM UP"
+            if (walkcount % 10 != 0):
                 character.image = pygame.image.load("characteranimations/up" + str(dirnum) + ".bmp").convert_alpha()
                 introgroup.clear(screen, background)
                 screen1group.draw(screen)
@@ -102,10 +101,9 @@ while 1:
             pygame.display.flip()
             sleep(0.025)
         elif( pygame.key.get_pressed()[pygame.K_a] != 0 ):
-            print "IM THERE"
+            print "IM LEFT"
             walkcount=walkcount+1
             if( walkcount % 10 != 0):
-                print "IM THERE TOO"
                 character.image = pygame.image.load("characteranimations/left" + str(dirnum) + ".bmp").convert_alpha()
                 introgroup.clear(screen, background)
                 screen1group.draw(screen)
@@ -121,9 +119,8 @@ while 1:
             sleep(0.025)
         elif( pygame.key.get_pressed()[pygame.K_s] != 0 ):
             walkcount=walkcount+1
-            print "IM SOMEWHERE"
+            print "IM DOWN"
             if( walkcount % 10 != 0):
-                print "IM SOMEHWERE TOO"
                 character.image = pygame.image.load("characteranimations/down" + str(dirnum) + ".bmp").convert_alpha()
                 introgroup.clear(screen, background)
                 screen1group.draw(screen)
@@ -136,12 +133,11 @@ while 1:
             character.rect=character.rect.move(0,5)
             screen1group.draw(screen)
             pygame.display.flip()
-            sleep (0.25)
+            sleep (0.025)
         elif( pygame.key.get_pressed()[pygame.K_d] != 0 ):
             walkcount=walkcount+1
-            print "IM NOWHERE"
+            print "IM RIGHT"
             if( walkcount % 10 != 0):
-                print "IM NOWHERE TOO"
                 character.image = pygame.image.load("characteranimations/right" + str(dirnum) + ".bmp").convert_alpha()
                 introgroup.clear(screen, background)
                 screen1group.draw(screen)
@@ -154,4 +150,4 @@ while 1:
             character.rect=character.rect.move(5,0)
             screen1group.draw(screen)
             pygame.display.flip()
-            sleep(0.25)
+            sleep(0.025)
