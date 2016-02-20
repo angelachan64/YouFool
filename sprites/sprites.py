@@ -18,7 +18,7 @@ black = 0,0,0
 screen = pygame.display.set_mode(size)
 background = pygame.Surface(screen.get_size()).convert()
 background.fill(black)
- #title = basicsprite("../static/titletrans2.bmp", (width/2 - 207.5,80))
+title = basicsprite("../static/titletrans2.bmp", (width/2 - 207.5,80))
 maps = basicsprite("../static/map.bmp", (0,-height/4))
 resume = basicsprite("../static/resume_button2.bmp", (width/2 - 196.5,400))
 start = basicsprite("../static/menu_button2.bmp", (width/2 - 196.5,300))
@@ -46,17 +46,18 @@ while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
     if introscreen == True:
-         if count==60:
+        if count==60:
             movey*=-1
 
-        if  count==150
-            movex*==-1
-            count==0
+        if count==150:
+            movex*=-1
+            count=0
         maps.rect=maps.rect.move(movex,movey)
         introgroup.draw(screen)
         pygame.display.flip()
         sleep(0.025)
         count+=1
+
         if pygame.mouse.get_pressed()[0] and introgroup.sprites()[3].rect.collidepoint(pygame.mouse.get_pos()):
             introgroup.empty()
             introgroup.clear(screen, background)
@@ -67,8 +68,7 @@ while 1:
             screen1group.add(character)
             screen1group.draw(screen)
             pygame.display.flip()
-
-
+            background.fill(black)
 
         elif pygame.mouse.get_pressed()[0] and introgroup.sprites()[2].rect.collidepoint(pygame.mouse.get_pos()):
             introgroup.empty()
@@ -81,7 +81,7 @@ while 1:
             screen1group.draw(screen)
             pygame.display.flip()
 
-    if screen1== True:
+    if screen1 == True:
 
         if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
             walkcount=walkcount+1
