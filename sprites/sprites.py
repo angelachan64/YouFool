@@ -42,6 +42,7 @@ movex=-2
 movey=2
 walkcount=0                                                                                                                                                                                                                 
 dirnum = 1
+lastKey= "down"
 
 while 1:
     for event in pygame.event.get():
@@ -84,7 +85,13 @@ while 1:
             pygame.display.flip()
 
     if screen1 == True:
-
+        if event.type != pygame.KEYDOWN:
+            walkcount=0
+            character.image = pygame.image.load("characteranimations/"+ lastKey + str(0) + ".bmp").convert_alpha()
+            introgroup.clear(screen, background)
+            screen1group.draw(screen)
+            pygame.display.flip()
+            
         if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
             walkcount=walkcount+1
             print "IM UP"
@@ -94,6 +101,7 @@ while 1:
             introgroup.clear(screen, background)
             screen1group.draw(screen)
             pygame.display.flip()
+            lastKey= "up"
                 
                 
             #character.image= pygame.image.load("characterup.bmp").convert_alpha()
@@ -110,6 +118,7 @@ while 1:
             introgroup.clear(screen, background)
             screen1group.draw(screen)
             pygame.display.flip()
+            lastKey="left"
                 
            
        
@@ -128,7 +137,7 @@ while 1:
             screen1group.draw(screen)
             pygame.display.flip()
             walkcount=walkcount+1
-            
+            lastKey = "down"
                 
             #character.image= pygame.image.load("characterdown.bmp").convert_alpha()
             introgroup.clear(screen, background)
@@ -145,6 +154,7 @@ while 1:
             introgroup.clear(screen, background)
             screen1group.draw(screen)
             pygame.display.flip()
+            lastKey="right"
 
 
             #character.image= pygame.image.load("characterright.bmp").convert_alpha()
