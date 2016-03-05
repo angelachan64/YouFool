@@ -10,6 +10,8 @@ class basicsprite(pygame.sprite.Sprite):
         #self.size = size
         self.rect = self.image.get_rect()
         self.rect = self.rect.move(coords)
+        self.xcor = coords[0]
+        self.ycor = coords[1]
     def get_Coords():
         return coords
 
@@ -85,82 +87,47 @@ while 1:
             screen1group.draw(screen)
             pygame.display.flip()
 
+    
     if screen1 == True:
+        changex = 0
+        changey = 0
+        directions = "down"
         if event.type != pygame.KEYDOWN:
             walkcount=0
             character.image = pygame.image.load("characteranimations/"+ lastKey + str(0) + ".bmp").convert_alpha()
             introgroup.clear(screen, background)
             screen1group.draw(screen)
             pygame.display.flip()
-            
-        if( pygame.key.get_pressed()[pygame.K_w] != 0 ):
+        if (character.xcor > 0 and character.xcor < width and character.ycor > 0 and character.ycor < height):        
+            if( pygame.key.get_pressed()[pygame.K_w] != 0 and character.ycor > 0 ):
+                changey = -5
+                lastKey = "up"
+                character.rect=character.rect.move(changex,changey)
+            elif( pygame.key.get_pressed()[pygame.K_a] != 0 and character.xcor > 0):
+                changex = -5
+                lastKey = "left"
+                character.rect=character.rect.move(changex,changey)
+            elif( pygame.key.get_pressed()[pygame.K_s] != 0 and character.ycor < height):
+                changey = 5
+                lastKey = "down"
+                character.rect=character.rect.move(changex,changey)
+            elif( pygame.key.get_pressed()[pygame.K_d] != 0 and character.xcor < width):
+                changex = 5
+                lastKey = "right"
+                character.rect=character.rect.move(changex,changey)
             walkcount=walkcount+1
             print "IM UP"
             #walkcount=walkcount+1
             #if (walkcount % 10 != 0):
-            character.image = pygame.image.load("characteranimations/up" + str((walkcount/5) % 9) + ".bmp").convert_alpha()
+            character.image = pygame.image.load("characteranimations/" + lastKey + str((walkcount/5) % 9) + ".bmp").convert_alpha()
             #introgroup.clear(screen, background)
             #screen1group.draw(screen)
             #pygame.display.flip()
-            lastKey= "up"
-                
-                
+                    
+                    
             #character.image= pygame.image.load("characterup.bmp").convert_alpha()
             introgroup.clear(screen, background)
-            character.rect=character.rect.move(0,-5)
             screen1group.draw(screen)
             pygame.display.flip()
             sleep(0.029)
-        elif( pygame.key.get_pressed()[pygame.K_a] != 0 ):
-            print "IM LEFT"
-            walkcount=walkcount+1
-            #if( walkcount % 10 != 0):
-            character.image = pygame.image.load("characteranimations/left" + str((walkcount/5) % 9) + ".bmp").convert_alpha()
-            #introgroup.clear(screen, background)
-            #screen1group.draw(screen)
-            #pygame.display.flip()
-            lastKey="left"
-                
-           
-       
-            #character.image= pygame.image.load("characterleft.bmp").convert_alpha()
-            introgroup.clear(screen, background)
-            character.rect=character.rect.move(-5,0)
-            screen1group.draw(screen)
-            pygame.display.flip()
-            sleep(0.029)
-        elif( pygame.key.get_pressed()[pygame.K_s] != 0 ):
-            print "IM DOWN"
-            #walkcount=walkcount+1
-            #if( walkcount % 10 != 0):
-            character.image = pygame.image.load("characteranimations/down" + str((walkcount/5) % 9) + ".bmp").convert_alpha()
-            #introgroup.clear(screen, background)
-            #screen1group.draw(screen)
-            #pygame.display.flip()
-            walkcount=walkcount+1
-            lastKey = "down"
-                
-            #character.image= pygame.image.load("characterdown.bmp").convert_alpha()
-            introgroup.clear(screen, background)
-            character.rect=character.rect.move(0,5)
-            screen1group.draw(screen)
-            pygame.display.flip()
-            sleep (0.029)
-        elif( pygame.key.get_pressed()[pygame.K_d] != 0 ):
-            #walkcount=walkcount+1
-            print "IM RIGHT"
-            walkcount=walkcount+1
-            #if( walkcount % 10 != 0):
-            character.image = pygame.image.load("characteranimations/right" + str((walkcount/5) % 9) + ".bmp").convert_alpha()
-            #introgroup.clear(screen, background)
-            #screen1group.draw(screen)
-            #pygame.display.flip()
-            lastKey="right"
-
-
-            #character.image= pygame.image.load("characterright.bmp").convert_alpha()
-            introgroup.clear(screen, background)
-            character.rect=character.rect.move(5,0)
-            screen1group.draw(screen)
-            pygame.display.flip()
-            sleep(0.029)
+  
