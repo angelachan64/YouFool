@@ -32,6 +32,7 @@ introgroup.draw(screen)
 pygame.display.flip()
 
 character = basicsprite("characteranimations/down0.bmp", (width/2-15,height/2-26))
+background2 = basicsprite("../static/map.bmp", (0,-height/4))
 #enemy = basicsprite("bobby.bmp", (width/2-15,height/2-26))
 
 screen1=False
@@ -66,7 +67,7 @@ while 1:
             pygame.display.flip()
             introscreen = False
             screen1= True
-
+            screen1group.add(background2) 
             screen1group.add(character)
             #screen1group.add(enemy)
             screen1group.draw(screen)
@@ -79,7 +80,7 @@ while 1:
             pygame.display.flip()
             introscreen = False
             screen1 = True
-
+            screen1group.add(background2) 
             screen1group.add(character)
             screen1group.draw(screen)
             pygame.display.flip()
@@ -88,7 +89,7 @@ while 1:
         if event.type != pygame.KEYDOWN:
             walkcount=0
             character.image = pygame.image.load("characteranimations/"+ lastKey + str(0) + ".bmp").convert_alpha()
-            screen1group.clear(screen, background)
+            introgroup.clear(screen, background)
             screen1group.draw(screen)
             pygame.display.flip()
             
@@ -98,14 +99,14 @@ while 1:
             #walkcount=walkcount+1
             #if (walkcount % 10 != 0):
             character.image = pygame.image.load("characteranimations/up" + str((walkcount/5) % 9) + ".bmp").convert_alpha()
-            #screen1group.clear(screen, background)
+            #introgroup.clear(screen, background)
             #screen1group.draw(screen)
             #pygame.display.flip()
             lastKey= "up"
                 
                 
             #character.image= pygame.image.load("characterup.bmp").convert_alpha()
-            screen1group.clear(screen, background)
+            introgroup.clear(screen, background)
             character.rect=character.rect.move(0,-5)
             screen1group.draw(screen)
             pygame.display.flip()
@@ -115,7 +116,7 @@ while 1:
             walkcount=walkcount+1
             #if( walkcount % 10 != 0):
             character.image = pygame.image.load("characteranimations/left" + str((walkcount/5) % 9) + ".bmp").convert_alpha()
-            #screen1group.clear(screen, background)
+            #introgroup.clear(screen, background)
             #screen1group.draw(screen)
             #pygame.display.flip()
             lastKey="left"
@@ -123,7 +124,7 @@ while 1:
            
        
             #character.image= pygame.image.load("characterleft.bmp").convert_alpha()
-            screen1group.clear(screen, background)
+            introgroup.clear(screen, background)
             character.rect=character.rect.move(-5,0)
             screen1group.draw(screen)
             pygame.display.flip()
@@ -133,14 +134,14 @@ while 1:
             #walkcount=walkcount+1
             #if( walkcount % 10 != 0):
             character.image = pygame.image.load("characteranimations/down" + str((walkcount/5) % 9) + ".bmp").convert_alpha()
-            #screen1group.clear(screen, background)
+            #introgroup.clear(screen, background)
             #screen1group.draw(screen)
             #pygame.display.flip()
             walkcount=walkcount+1
             lastKey = "down"
                 
             #character.image= pygame.image.load("characterdown.bmp").convert_alpha()
-            screen1group.clear(screen, background)
+            introgroup.clear(screen, background)
             character.rect=character.rect.move(0,5)
             screen1group.draw(screen)
             pygame.display.flip()
@@ -158,7 +159,7 @@ while 1:
 
 
             #character.image= pygame.image.load("characterright.bmp").convert_alpha()
-            screen1group.clear(screen, background)
+            introgroup.clear(screen, background)
             character.rect=character.rect.move(5,0)
             screen1group.draw(screen)
             pygame.display.flip()
